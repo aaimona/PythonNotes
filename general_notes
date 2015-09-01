@@ -1,0 +1,66 @@
+# PYTHON IS A ZERO-INDEXED LANGUAGE!!! (unlike R, which is one-indexed)
+
+# type() function gives you type of data used as an argument, e.g. integer, float, string
+# IF statements: 
+if condition:
+    # code here
+elif condition: # the same as else if in R
+    # code here
+else:
+    # code here
+
+# when checking e.g. type of a variable, i don't put the desired type in between quotation marks, see below:
+if type(x) == float: # (instead of if type(x) == "float")
+    # do sth
+
+# when i want to fill placeholders in my text with the value of my variables, i use the following syntax:
+"There are %d items in the suitcase." % (list_length)
+# %d is a placeholder (could be one or more of them), then % comes, and placeholders are replaced accordingly with
+# values of variables given in parentheses after %.
+
+# LISTS
+# I can create lists by putting items between square brackets:
+new_list = [15, True, "goldfish", False, 56.7, "sloth"]
+# when i want to access particular elements of a list, i use an index, i.e. numbers in square brackets, as below:
+first_two = new_list[0:2]
+# NB: We start at the index before the colon and continue up to BUT NOT INCLUDING the index after the colon.
+# TOGETHER WITH ZERO INDEXING, THIS IS CRAZY SHIT :) and it may cause some problems for newbie programmers like me.
+last_two = new_list[4:6] 
+# here i have 6 after the colon. There is no 6th element in the list (remember 0 indexing), but i have to use 
+# len(new_list) + 1 if i want to access the last element of the list. Crazy Crazy Crazy.
+
+# INSTALLING MODULES
+# When i want to use a new module preinstalled in Python, e.g. math module, i have to import it first.
+# This is called generic import.
+import math
+# when i've done this, in order to use sqrt() i need to use the following syntax:
+number = 64
+print math.sqrt(number)
+# if i want to use just one or a few particular variables or functions from that module, i can import just them
+from math import sqrt
+# then, the syntax goes like this:
+sqrt(number)
+# if i want to import all module elements but at the same time i don't want to repeat math. prefix all the time,
+# i just need to perform so called universal import, and the syntax is:
+from math import *
+# Although the last option looks most convenient, it ain't so. For example, it loads your RAM with many variables
+# and functions you probably won't use. Moreover, Python may get confused when it comes to distinguishing between 
+# functions with the same name but coming from different modules. The safest way is either to perform generic import
+# and use module. prefix, or to import specific variables/functions.
+# There are, of course, many functions that are ready to use, no import needed.
+
+# DEFINING FUNCTIONS
+# The syntax for defining functions:
+def function(arg1, arg2, ...):
+    # code function's tasks here
+
+# WORKING WITH STRINGS
+# four basic functions useful when working with strings:
+string = "monty_python"
+string2 = 21345
+len(string) # gives you the length of a given string
+str(string2) # changes a given variable into string
+string.upper() # changes all characters of a string into upper case
+string.lower() # as above, lower case
+# NB: len() and str() are used in an R-similar way - function(x)
+# upper() and lower() need to be prefixed with a variable name ended with a dot, like in the example above
