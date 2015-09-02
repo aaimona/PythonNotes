@@ -18,10 +18,12 @@ for element in list: # ALWAYS put a colon at the end of for statement! Similar a
 if type(x) == float: # (instead of if type(x) == "float")
     # do sth
 
+# FORMAT SPECIFIERS
 # when i want to fill placeholders in my text with the value of my variables, i use the following syntax:
 "There are %d items in the suitcase." % (list_length)
 # %d is a placeholder (could be one or more of them), then % comes, and placeholders are replaced accordingly with
-# values of variables given in parentheses after %.
+# values of variables given in parentheses after %. These are so called format specifiers: %s is for character string,
+# %d is for integer and %f is for float.
 
 # LISTS
 # I can create lists by putting items between square brackets:
@@ -48,12 +50,30 @@ dictionary_name[existing_key] = new_value # changes the value assigned to the ex
 inventory = {
     'gold' : 500,
     'pouch' : ['flint', 'twine', 'gemstone'], 
-    'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
+    'backpack' : ['xylophone','dagger', 'bedroll'] # NB: we use a colon to separate key form value, not an equal sign
 }
 second_element = inventory[pouch][1]
 # NB: square brackets above are not nested within one another, like it would be in R. The brackets for key are 
 # the first pair and they are closed before i open another pair to tell Python which element of the list i want to access.
 # Tiny thing, but i can feel this could be freaking important later on :)
+
+# if i create two dictionaries with the same keys, i can access values from both of them in the same IF or FOR statement:
+prices = {
+    "banana" : 4,
+    "apple"  : 2,
+    "orange" : 1.5,
+    "pear"   : 3,
+}
+stock = {
+    "banana" : 6,
+    "apple"  : 0,
+    "orange" : 32,
+    "pear"   : 15,
+}
+for key in prices:
+    print key
+    print "price: " + str(prices[key])
+    print "stock: " + str(stock[key])
 
 # INSTALLING MODULES
 # When i want to use a new module preinstalled in Python, e.g. math module, i have to import it first.
