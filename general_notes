@@ -33,7 +33,7 @@ first_two = new_list[0:2]
 # NB: We start at the index before the colon and continue up to BUT NOT INCLUDING the index after the colon.
 # TOGETHER WITH ZERO INDEXING, THIS IS CRAZY SHIT :) and it may cause some problems for newbie programmers like me.
 last_two = new_list[4:6] 
-# here i have 6 after the colon. There is no 6th element in the list (remember 0 indexing), but i have to use 
+# here i have 6 after the colon. There is no 6th element in the list (last is 5th - remember 0 indexing), but i have to use 
 # len(new_list) + 1 if i want to access the last element of the list. Crazy Crazy Crazy.
 
 # DICTIONARIES
@@ -110,3 +110,12 @@ string.upper() # changes all characters of a string into upper case
 string.lower() # as above, lower case
 # NB: len() and str() are used in an R-similar way - function(x)
 # upper() and lower() need to be prefixed with a variable name ended with a dot, like in the example above
+
+# MATHEMATICAL OPERATIONS - DIVISION
+# another strange and totally non-intuitive thing - types of data in division.
+# say i want to divide 5 by 2. In the normal world the result is just 2.5, with no overthinking. BUT NOT HERE!
+# if i want to divide integer by integer and the result is a float, the result i get in Python would nevertheless be
+# integer, additionally rounded down. WTF. if i want to divide a float by an integer, the result is a float - ok, i can
+# agree with that one. BUT, if i want to divide an integer by an integer and get a float, i need to use float() to change
+# of the integers' type into float. 5 divided by 2 is 2 by default? Python, seriously? Now i'm starting to understand
+# why only ultrageeks get Python jobs :)
