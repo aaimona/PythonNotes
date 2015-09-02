@@ -9,6 +9,11 @@ elif condition: # the same as else if in R
 else:
     # code here
 
+# FOR LOOPS
+# Syntax for for loops:
+for element in list: # ALWAYS put a colon at the end of for statement! Similar as in IF statement
+    # do something
+
 # when checking e.g. type of a variable, i don't put the desired type in between quotation marks, see below:
 if type(x) == float: # (instead of if type(x) == "float")
     # do sth
@@ -28,6 +33,27 @@ first_two = new_list[0:2]
 last_two = new_list[4:6] 
 # here i have 6 after the colon. There is no 6th element in the list (remember 0 indexing), but i have to use 
 # len(new_list) + 1 if i want to access the last element of the list. Crazy Crazy Crazy.
+
+# DICTIONARIES
+# A dictionary is similar to a list, but i'm accessing a value by a key, not by an index. Dictionaries
+# are enclosed in curly braces. Keys are strings so they are enclosed in quotation marks. See below for syntax:
+residents = {'Puffin' : 104, 'Sloth' : 105, 'Burmese Python' : 106}
+print residents['Puffin'] 
+# Useful when i don't know the place of my value in a string or in a list, but i know the name of a key.
+dictionary = {} # creates an empty dictionary
+dictionary_name[new_key] = new_value # adds new item to the dictionary
+dictionary_name[existing_key] = new_value # changes the value assigned to the existing key
+# Since a value assigned to a key could be a list, i.e. a list nested in a list-like dictionary, if i want to access
+# a specific element of that nested list, the syntax goes like this:
+inventory = {
+    'gold' : 500,
+    'pouch' : ['flint', 'twine', 'gemstone'], 
+    'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
+}
+second_element = inventory[pouch][1]
+# NB: square brackets above are not nested within one another, like it would be in R. The brackets for key are 
+# the first pair and they are closed before i open another pair to tell Python which element of the list i want to access.
+# Tiny thing, but i can feel this could be freaking important later on :)
 
 # INSTALLING MODULES
 # When i want to use a new module preinstalled in Python, e.g. math module, i have to import it first.
