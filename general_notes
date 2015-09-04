@@ -17,6 +17,18 @@ for element in list: # ALWAYS put a colon at the end of for statement! Similar a
 # when checking e.g. type of a variable, i don't put the desired type in between quotation marks, see below:
 if type(x) == float: # (instead of if type(x) == "float")
     # do sth
+# there are two ways to iterate over a list in Python:
+# first way just iterates and cannot change the given list:
+for item in the_list:
+    print item
+# second way iterates but is able to change the given list:
+for i in range(len(the_list):
+    print the_list[i]
+
+# if i want to join elements of a list with a separator between each element, here's how it goes:
+letters = ['a', 'b', 'c', 'd']
+print " ".join(letters) # the output is a b c d
+print "---".join(letters) # the output is a---b---c---d
 
 # FORMAT SPECIFIERS
 # when i want to fill placeholders in my text with the value of my variables, i use the following syntax:
@@ -35,6 +47,15 @@ first_two = new_list[0:2]
 last_two = new_list[4:6] 
 # here i have 6 after the colon. There is no 6th element in the list (last is 5th - remember 0 indexing), but i have to use 
 # len(new_list) + 1 if i want to access the last element of the list. Crazy Crazy Crazy.
+
+# if i want to use a list of lists as an argument to pass into function, here's how it goes:
+n = [[1, 2, 3], [4, 5, 6, 7, 8, 9]]
+def flatten(lists):
+    results = []
+    for numbers in lists: # remember not to use the word "list" as a looping variable - "list" is a reserved word
+        for n in numbers: # i have two levels of for loop
+            results.append(n)
+    return results
 
 # DICTIONARIES
 # A dictionary is similar to a list, but i'm accessing a value by a key, not by an index. Dictionaries
