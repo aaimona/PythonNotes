@@ -25,6 +25,33 @@ for item in the_list:
 for i in range(len(the_list):
     print the_list[i]
 
+# looping through dictionaries with for loop is simple:
+d = {'a': 'apple', 'b': 'berry', 'c': 'cherry'}
+for key in d:
+    print key + " " + d[key]
+    # output: a apple
+              b banana
+              c cherry
+
+# WHILE LOOPS
+# The while loop is similar to an if statement: it executes the code inside of it if some condition is true.  
+# The difference is that the while loop will continue to execute as long as the condition is true.
+# In other words, instead of executing IF something is true, it executes WHILE that thing is true.
+# A short example of a while loop below:
+from random import randint
+random_number = randint(1, 10)
+guesses_left = 3
+while guesses_left > 0:
+    guess = int(raw_input("Your guess: "))
+    if guess == random_number:
+        print "You win!"
+        break
+    guesses_left -= 1 # decrements number of guesses left
+    # the indent is on if level, not inside it, since we want to do this every time the while loop is executed,
+    # not just in case of break occuring inside the if statement
+else:
+    print "You lose."
+
 # if i want to join elements of a list with a separator between each element, here's how it goes:
 letters = ['a', 'b', 'c', 'd']
 print " ".join(letters) # the output is a b c d
@@ -131,6 +158,25 @@ string.upper() # changes all characters of a string into upper case
 string.lower() # as above, lower case
 # NB: len() and str() are used in an R-similar way - function(x)
 # upper() and lower() need to be prefixed with a variable name ended with a dot, like in the example above
+
+# if i want to print all characters in a word in separate lines, Python has a very simple way to do it.
+# i just need to write a for loop, like the one below:
+word = "eggs!"
+for d in word:
+    print d
+# correct me if i'm wrong, but in R this would be sooooo much trickier, with cutting off the letters one by one
+# and reassigning 'word' variable to its shorter version each time...
+# if i add a comma after print statement, it will all print in the same line and the output will look like this:
+word = "eggs!"
+for d in word:
+    print d, # output: e g g s !; this goes for numbers too
+
+# RAW_INPUT FUNCTION
+# raw_input function prompts reader for an answer, like below:
+raw_input("Your name is: ")
+# It's worth noting that raw_input converts obtained answer into a string so if we want to perform further mathematical
+# operations on that answer we need to nest this function inside int() function and therefore get back our integer form
+guess = int(raw_input("Your guess is: "))
 
 # MATHEMATICAL OPERATIONS - DIVISION
 # another strange and totally non-intuitive thing - types of data in division.
