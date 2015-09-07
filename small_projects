@@ -1,0 +1,41 @@
+# define a function that takes a (positive) integer and returns SUM OF ITS DIGITS
+# one way - first came to my mind, but my hubby told me it's discouraged since very memory-consuming
+def digit_sum(n):
+    sum = 0
+    str_n = str(n)
+    for digit in str_n:
+        sum += int(digit)
+    return sum
+# other way - i only operate on integers, w/o converting them back and forth like in the solution above
+def digit_sum(n):
+    sum = 0
+    while n > 0:
+        right = n % 10
+        sum += right
+        n = n // 10
+    return sum
+    
+# define a function that takes an integer and returns its FACTORIAL:
+def factorial(x):
+    prod = 1
+    for element in range(1, x + 1):
+        prod *= element
+    return prod
+    
+# define a function that checks if a number IS A PRIME NUMBER
+def is_prime(x):
+    if x <= 1:
+        return False
+    for n in range(2, x):
+        if x % n == 0:
+            return False
+    return True
+    
+# define a function that takes a string and REVERSES IT
+def reverse(text):
+    rev = ""
+    while text != "":
+        right = text[len(text) - 1]
+        rev += right
+        text = text[:-1]
+    return rev
