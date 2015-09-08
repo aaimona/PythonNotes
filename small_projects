@@ -6,7 +6,7 @@ def digit_sum(n):
     for digit in str_n:
         sum += int(digit)
     return sum
-# other way - i only operate on integers, w/o converting them back and forth like in the solution above
+# other way - i only operate on integers, w/o converting them back and forth as in the solution above
 def digit_sum(n):
     sum = 0
     while n > 0:
@@ -39,3 +39,91 @@ def reverse(text):
         rev += right
         text = text[:-1]
     return rev
+
+# define a function that takes a string and REMOVES WOVELS except y/Y (small and capital letters)
+def anti_vowel(text):
+    strng = ""
+    vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"]
+    for letter in text:
+        if letter not in vowels:
+            strng += letter
+    return strng
+
+# define a function that takes a word and returns its SCRABBLE SCORE (works with both upper- and lowercase letters)
+score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
+         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
+         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1, 
+         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4, 
+         "x": 8, "z": 10}
+
+def scrabble_score(word):
+    word = word.lower()
+    my_score = 0
+    for letter in word:
+        my_score += score[letter]
+    return my_score
+
+# define a function that takes a text and a word and returns the text with the word REPLACED BY ASTERISKS ("CENSOR")
+def censor(text, word):
+    lst = text.split()
+    # NB: text.split() is not a name of the function as it would be in R. It is a .split method in which i use 
+    # a name of a string that needs to be defined earlier. In this case, i have an argument called "text" and it is
+    # a string. Hence, when i'm splitting the string, i'm doing it with text.split(). If the name of the string would be
+    # e.g. "my_new_string", i would use my_new_string.split() to split it up.
+    for x in range(0, len(lst)):
+        if lst[x] != word:
+            next
+        else:
+            lst[x] = "*" * len(lst[x])
+    return " ".join(lst)
+
+# define a function that takes two arguments, sequence and item, and COUNTS how many times this item occurs in sequence.
+# the result is an integer, sequence is a list, item can be whatever type i like: integer, float, string, or even list.
+def count(sequence, item):
+    result = 0
+    for element in sequence:
+        if element == item:
+            result += 1
+        else:
+            next
+    return result
+
+# define a function that takes a list of numbers and returns its new version WITHOUT ODD NUMBERS
+def purify(lst):
+    pure = []
+    for i in lst:
+        if i % 2 == 0:
+            pure.append(i)
+        else:
+            next
+    return pure
+
+# define a function that takes a list of numbers and returns its PRODUCT
+def product(lst):
+    prod = 1
+    for i in lst:
+        prod *= i
+    return prod
+    
+# define a function that takes a list and REMOVES DUPLICATES from that list, returning a new list with single values
+def remove_duplicates(lst):
+    rmv = []
+    for i in lst:
+        if i in rmv:
+            next
+        else:
+            rmv.append(i)
+    return rmv
+    
+# define a function that returns a MEDIAN of a given list of numbers
+def median(lst):
+    sort = sorted(lst)
+    if len(sort) % 2 == 1:
+        middle = len(sort) // 2
+        return sort[middle]
+    else:
+        mid1 = (len(sort) / 2) - 1
+        mid2 = len(sort) / 2
+        return (sort[mid1] + sort[mid2]) / 2.0 
+        # NB: see that 2.0 at the end? remember that weird rules of integer and float division in Python?
+        # if i divided that phrase just by 2 and not by 2.0, the whole code returns an error. Oh well.
