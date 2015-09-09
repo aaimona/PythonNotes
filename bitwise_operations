@@ -1,0 +1,26 @@
+# COUNTING IN BASE TWO
+# in base 2, once you get to the number 2 you have to carry over the one, resulting in the representation "10".
+#  Adding one again results in "11" (3) and adding one again results in "100" (4). Contrary to counting in base 10,
+# where each decimal place represents a power of 10, each place in a binary number represents a power of two (or a bit). 
+# The rightmost bit is the 1's bit (two to the zero power), the next bit is the 2's bit (two to the first), then 4, 8, 
+# 16, 32, and so on. The binary number '1010' is 10 in base 2 because the 8's bit and the 2's bit are "on".
+
+# there is a second, optional argument to int() function. Normally, int() would turn the input string into an integer.
+# however, if i want to show off and do some magic, i use e.g. binary notation of a number as the first argument and
+# the base this number is in as the second argument. the result is this number's equivalent in 10-base system. see below:
+print int("1",2) # => 1
+print int("10",2) # => 2
+print int("111",2) # => 7
+print int("0b100",2) # => 4
+print int(bin(5),2) # => 5
+print int("0b11001001",2) # => 201
+
+# BIT MASK
+# the function below checks if the 4th bit from the right is on
+def check_bit4(input):
+    mask = 0b01000 # creates a mask on the 4th bit from the right
+    desired = input & mask # puts the mask on the function input (it gets 1 only if this bit is on in input AND in mask)
+    if desired > 0: # i.e. if there is any position with 1
+        return "on"
+    else: # i.e. if i get 0b0000
+        return "off"
