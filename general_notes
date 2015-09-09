@@ -1,5 +1,17 @@
 # PYTHON IS A ZERO-INDEXED LANGUAGE!!! (unlike R, which is one-indexed)
 
+# PYTHON ALLOWS FUNCTIONAL PROGRAMMING, I.E. I CAN PASS FUNCTIONS AS ARGUMENTS TO OTHER FUNCTIONS
+# what is strongly connected with functional programming is LAMBDA. It is an element of a syntax which creates
+# anonymous functions that are used only in this particular place in code so there's no need to create and name 
+# separate functions that occupy space in our precious memory. Sth like anonymous functions in R.
+my_list = range(16)
+print filter(lambda x: x % 3 == 0, my_list)
+# first element - function that does what i want, second element - the list this function operates on
+# when i plan to use that function again, it's way better to use def function(x) - so lambda and def are kind of opposite
+# list comprehension and lambda working together:
+squares = [x ** 2 for x in range(1, 11)]
+print filter(lambda x: x in range(30, 71), squares)
+
 # type() function gives you type of data used as an argument, e.g. integer, float, string
 # IF statements: 
 if condition:
@@ -83,6 +95,28 @@ def flatten(lists):
         for n in numbers: # i have two levels of for loop
             results.append(n)
     return results
+
+# LIST COMPREHENSIONS
+# list comprehension is a powerful way to generate lists using the for/in and if keywords, and all that in one line :)
+# the syntax for this is as follows:
+my_list = [x for x in _my_range_here_ if _my_condition_here_]
+# for example:
+cubes_by_four = [x ** 3 for x in range(1, 11) if x ** 3 % 4 == 0]
+# this code generates a list of numbers that are cubes of integers 1 through 10 that are evenly divisible by four
+# (the cubes are to be divisible, not the integers)
+
+# slicing a list:
+# if i want to print or operate on just a slice of a list, i can do it by using indices:
+l = [i for i in range(1, 15)]
+print l[2:9:2] 
+# prints items starting from item in position 2 inclusive (counting from 0, remember!) to 9 exclusive with step of 2
+# i can omit indices if i want them to take their default value, e.g.:
+print l[3:] # it'll print all the items, starting from position 3 ()remember zero-index)
+print l[::3] # it'll print every third item of the list
+
+# printing a list backwards - so easy and comfortable way to do it in Python :)
+backwards = my_list[::-1]
+# A positive stride length traverses the list from left to right, and a negative one traverses the list from right to left.
 
 # DICTIONARIES
 # A dictionary is similar to a list, but i'm accessing a value by a key, not by an index. Dictionaries
