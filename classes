@@ -1,0 +1,49 @@
+# creating classes - not as easy as it seems!
+class Animal(object): # introductory phrase, a signal for Python that i want to create a new class. NB capital letter in Animal
+    """Makes cute animals.""" # just a few words of comment
+    is_alive = True # a function that will be available to all instances of this new Class
+    def __init__(self, name, age): 
+# __init__ initializes or boots new class. it needs to be given some arguments. first and the most important is "self",
+# which is this new class itself - Python needs to something to hold on to for the rest of the process of creating this
+# new class.
+        self.name = name
+        self.age = age # these are called METHODS and they should correspond with the list in __init__()
+    def description(self): # i can add my own method
+        print self.name
+        print self.age
+
+hippo = Animal("Zenek", "3")
+print hippo.description() 
+# i call this new method i've added by calling object_name.description(). Actually, i can call this method without parentheses
+# at the end since the description() function takes no arguments and it only needs me to specify which object of this new class
+# i'm interested in. Hence, hippo.description.
+
+# i need to add "self" as first argument IN ALL METHODS that i create in this newly created class. The syntax needs it to know 
+# what to refer to. Even if i create a function that will take no argument, in the method definition I HAVE TO ADD "SELF".
+
+# this is a nice real-life example of class creation: shopping cart in an online shop:
+class ShoppingCart(object):
+    """Creates shopping cart objects
+    for users of our fine website."""
+    items_in_cart = {}
+    def __init__(self, customer_name):
+        self.customer_name = customer_name
+
+    def add_item(self, product, price):
+        """Add product to the cart."""
+        if not product in self.items_in_cart:
+            self.items_in_cart[product] = price
+            print product + " added."
+        else:
+            print product + " is already in the cart."
+
+    def remove_item(self, product):
+        """Remove product from the cart."""
+        if product in self.items_in_cart:
+            del self.items_in_cart[product]
+            print product + " removed."
+        else:
+            print product + " is not in the cart."
+    
+my_cart = ShoppingCart("Kasia")
+my_cart.add_item("wallet", 45.50)
