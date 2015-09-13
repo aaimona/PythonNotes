@@ -1,6 +1,9 @@
 # creating classes - not as easy as it seems!
-class Animal(object): # introductory phrase, a signal for Python that i want to create a new class. NB capital letter in Animal
-    """Makes cute animals.""" # just a few words of comment
+class Animal(object): # introductory phrase, a signal for Python that i want to create a new class. 
+# NB capital letter in Animal - there is a good practice of begining the new class' name with capital letter
+    """Makes cute animals.""" 
+    # just a few words of comment. if i just want to create the class and fill it with code later, i can the word "pass"
+    # as a placeholder for the code that will follow
     is_alive = True # a function that will be available to all instances of this new Class
     def __init__(self, name, age): 
 # __init__ initializes or boots new class. it needs to be given some arguments. first and the most important is "self",
@@ -15,8 +18,8 @@ class Animal(object): # introductory phrase, a signal for Python that i want to 
 hippo = Animal("Zenek", "3")
 print hippo.description() 
 # i call this new method i've added by calling object_name.description(). Actually, i can call this method without parentheses
-# at the end since the description() function takes no arguments and it only needs me to specify which object of this new class
-# i'm interested in. Hence, hippo.description.
+# at the end since the description() function takes no arguments and it only needs me to specify which object of this new 
+# class i'm interested in. Hence, hippo.description.
 
 # i need to add "self" as first argument IN ALL METHODS that i create in this newly created class. The syntax needs it to know 
 # what to refer to. Even if i create a function that will take no argument, in the method definition I HAVE TO ADD "SELF".
@@ -85,6 +88,27 @@ class Triangle(Shape):
         self.side1 = side1
         self.side2 = side2
         self.side3 = side3
+        
+# Defining a derived class:
+class Car(object):
+    condition = "new"
+    def __init__(self, model, color, mpg):
+        self.model = model
+        self.color = color
+        self.mpg   = mpg
+    def display_car(self):
+        return "This is a %s %s with %s MPG." % (self.color, self.model, str(self.mpg))
+    def drive_car(self):
+        self.condition = "used"
+        return self.condition
+
+class ElectricCar(Car):
+    def __init__(self, model, color, mpg, battery_type):
+    # even though it's a derived class and inherits methods and variables, i still need to repeat all arguments after "self"
+        self.model = model
+        self.color = color
+        self.mpg   = mpg
+        self.battery_type = battery_type
 
 # Override methods
 class Employee(object):
@@ -144,3 +168,27 @@ class Triangle(object):
             return True
         else:
             return False
+
+class Equilateral(Triangle): # inheritance from Triangle class
+    angle = 60 # all angles equal to 60 degrees
+    def __init__(self):
+        self.angle1 = self.angle
+        self.angle2 = self.angle
+        self.angle3 = self.angle # i assign triangle's each angle a fixed value of 60 degrees, equal to angle variable value
+
+# CREATING USEFUL CLASSES
+# Since i won't be creating Triangle or ElectricCar classes in my future job:), it's time for something more useful.
+# a new class is a way of storing and accessing abstract collections of data. one useful class method to override is
+# the built-in __repr__() method, which is short for representation; by providing a return value in this method, we can tell
+# Python how to represent an object of our class (for instance, when using a print statement). see below:
+class Point3D(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+    
+    def __repr__(self):
+        return "(%d, %d, %d)" % (self.x, self.y, self.z) # i tell Python i want my point to look exactly that way when printed
+
+my_point = Point3D(1, 2, 3)
+print my_point
